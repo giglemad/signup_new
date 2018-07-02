@@ -35,5 +35,9 @@ module SignupNew
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
+
+    config.reform.validations = :dry
+
+    config.active_record.belongs_to_required_by_default = false
   end
 end
