@@ -22,6 +22,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'rb-fsevent' if `uname` =~ /Darwin/ # For OS/X only, waits for file changes from the Mac OS/X FSEvents API instead of polling the disk for changes.
+  gem 'rspec-its'
+  gem 'shoulda-matchers'
 end
 
 group :development do
