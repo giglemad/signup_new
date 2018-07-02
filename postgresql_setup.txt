@@ -2,3 +2,12 @@ CREATE ROLE signup_new WITH LOGIN CREATEDB PASSWORD 'password';
 CREATE DATABASE signup_new_production WITH OWNER signup_new;
 CREATE DATABASE signup_new_development WITH OWNER signup_new;
 CREATE DATABASE signup_new_test WITH OWNER signup_new;
+
+\c signup_new_test;
+CREATE EXTENSION pgcrypto;
+
+\c signup_new_development;
+CREATE EXTENSION pgcrypto;
+
+\c signup_new_production;
+CREATE EXTENSION pgcrypto;

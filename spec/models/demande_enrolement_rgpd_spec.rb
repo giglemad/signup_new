@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 describe DemandeEnrolementRGPD do
-  it { is_expected.to have_db_index(:id) }
-  it { is_expected.to validate_uniqueness_of(:id) }
-
   it { is_expected.to have_one(:contact_organisme_demandeur).class_name('Contact') }
   it { is_expected.to have_db_column(:siret_organisme_demandeur).of_type(:string) }
-  it { is_expected.to have_db_column(:description_organisme_demandeur).of_type(:string) } # Nom du département, bureau ou service
+  it { is_expected.to have_db_column(:description_organisme_demandeur).of_type(:text) } # Nom du département, bureau ou service
 
   it { is_expected.to have_many(:contacts) }
 

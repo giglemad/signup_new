@@ -14,4 +14,5 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'RGPD'
   inflect.irregular 'demarche_administrative', 'demarches_administratives'
+  inflect.irregular 'demande_enrolement_rgpd', 'demandes_enrolements_rgpd'
 end

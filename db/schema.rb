@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_123855) do
+ActiveRecord::Schema.define(version: 2018_07_02_130725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2018_07_02_123855) do
     t.string "type_contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "demande_enrolement_rgpd_id"
+    t.index ["demande_enrolement_rgpd_id"], name: "index_contacts_on_demande_enrolement_rgpd_id"
+  end
+
+  create_table "demandes_enrolements_rgpd", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "siret_organisme_demandeur"
+    t.text "description_organisme_demandeur"
+    t.json "perimetre_donnees"
+    t.text "destinataires_donnees"
+    t.text "informations_complementaires"
+    t.string "lu_et_approuve_dpd"
+    t.boolean "acceptation_cgu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "demarches_administratives", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -33,6 +47,8 @@ ActiveRecord::Schema.define(version: 2018_07_02_123855) do
     t.integer "nombre_mois_conservation_donnees"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "demande_enrolement_rgpd_id"
+    t.index ["demande_enrolement_rgpd_id"], name: "index_demarches_administratives_on_demande_enrolement_rgpd_id"
   end
 
 end
